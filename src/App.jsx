@@ -74,7 +74,7 @@ function Header() {
   );
 }
 
-function PhotoCard({ photo, isFavourite, onToggleFavourite }) {
+function PhotoCard({ photo, displayNumber, isFavourite, onToggleFavourite }) {
   const imageUrl = `https://picsum.photos/id/${encodeURIComponent(photo.id)}/600/750`;
 
   function useOriginalImage(event) {
@@ -110,7 +110,7 @@ function PhotoCard({ photo, isFavourite, onToggleFavourite }) {
       </div>
       <div className="mt-3 flex items-baseline justify-between gap-2 px-0.5">
         <h2 className="truncate text-sm font-medium text-charcoal">{photo.author}</h2>
-        <span className="font-mono text-[11px] text-stone/80">#{photo.id}</span>
+        <span className="font-mono text-[11px] text-stone/80">#{displayNumber}</span>
       </div>
     </article>
   );
@@ -246,6 +246,7 @@ export default function App() {
                 <PhotoCard
                   key={photo.id}
                   photo={photo}
+                  displayNumber={photos.findIndex((item) => item.id === photo.id) + 1}
                   isFavourite={favourites.includes(photo.id)}
                   onToggleFavourite={handleToggleFavourite}
                 />
