@@ -1,0 +1,73 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+:root {
+  font-family: "DM Sans", system-ui, sans-serif;
+  color: #20211f;
+  background: #f7f6f2;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: #f7f6f2;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  color: #fff;
+  background: #b66a54;
+}
+
+.page-width {
+  width: min(100% - 2.5rem, 82.5rem);
+  margin-inline: auto;
+}
+
+.photo-image {
+  transition: transform 450ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .photo-image {
+  transform: scale(1.025);
+}
+
+.heart-button {
+  transition:
+    transform 180ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 150ms ease,
+    color 150ms ease;
+}
+
+.heart-button:active {
+  transform: scale(0.9);
+}
+
+@media (min-width: 640px) {
+  .page-width {
+    width: min(100% - 4rem, 82.5rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
